@@ -1,0 +1,56 @@
+
+
+### отчет 1 -выести список покупок за последнюю неделю
+GET  http://localhost:8480/my-app/api/v1/purchase/info/week
+
+### отчет 2 -вывести самый покупаемый товар за последний месяц
+GET  http://localhost:8480/my-app/api/v1/product/bestSeller
+
+### отчет 3 -вывести имя и фамилию человека,совершившего больше всего покупок за полгода
+GET  http://localhost:8480/my-app/api/v1/user/findBestCustomer
+
+### отчет 4 -что чаше всего покупают люди в возрасте 18 лет
+GET  http://localhost:8480/my-app/api/v1/product/age/18
+
+###
+GET  http://localhost:8480/my-app/api/v1/purchase/info/one
+###
+GET  http://localhost:8480/my-app/api/v1/purchase/2/id
+###
+GET  http://localhost:8480/my-app/api/v1/purchase/all
+
+###
+GET  http://localhost:8480/my-app/api/v1/product/all
+###
+GET  http://localhost:8480/my-app/api/v1/product/2/id
+###
+DELETE  http://localhost:8480/my-app/api/v1/product/delete/2
+###
+GET  http://localhost:8480/my-app/api/v1/user/all
+
+
+
+
+###
+GET  http://localhost:8480/my-app/api/v1/product/allDTO
+###
+GET  http://localhost:8480/my-app/api/v1/product/byUser/1
+
+### отчет 1 -выести список покупок за последнюю неделю
+GET  http://localhost:8480/my-app/api/v1/purchase/info/week
+
+### отчет 2 -вывести самый покупаемый товар за последний месяц
+GET  http://localhost:8480/my-app/api/v1/product/bestSeller
+
+### отчет 3 -вывести имя и фамилию человека,совершившего больше всего покупок за полгода
+GET  http://localhost:8480/my-app/api/v1/user/findBestCustomer
+
+### отчет 4 -что чаше всего покупают люди в возрасте 18 лет
+GET  http://localhost:8480/my-app/api/v1/product/age/18
+
+
+###
+GET  http://localhost:8480/my-app/api/v1/purchase/info/one
+
+###
+GET  http://localhost:8480/my-app/api/v1/product/bestSellerPlain
