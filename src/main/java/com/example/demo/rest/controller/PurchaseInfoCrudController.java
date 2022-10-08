@@ -31,7 +31,7 @@ public class PurchaseInfoCrudController {
         return infoService.findById(id);
     }
 
-//    @PostMapping( consumes = "application/xml", produces = "application/xml")
+    //    @PostMapping( consumes = "application/xml", produces = "application/xml")
 //    public PurchaseInfo createProduct(@RequestBody PurchaseInfoDTO infoDTO) {
 //        return infoService.save(infoDTO);
 //    }
@@ -39,7 +39,8 @@ public class PurchaseInfoCrudController {
     public PurchaseInfo createProduct(@RequestBody PurchaseInfoDTO infoDTO) {
         return infoService.save(infoDTO);
     }
-    @PutMapping(value = "/update",consumes = "application/xml", produces = "application/xml")
+
+    @PutMapping(value = "/update", consumes = "application/xml", produces = "application/xml")
     public PurchaseInfo updateProduct(@RequestBody PurchaseInfoDTO infoDTO) {
         return infoService.update(infoDTO);
     }

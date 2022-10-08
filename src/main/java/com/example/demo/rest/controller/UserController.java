@@ -42,7 +42,6 @@ public class UserController {
     @GetMapping(path = "/{id}/id", produces = "application/xml")
     public Optional findById(@PathVariable("id") int id) {
         return userRepository.findById(id);
-
     }
 
     @PostMapping(consumes = "application/xml", produces = "application/xml")
@@ -52,7 +51,7 @@ public class UserController {
 
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(consumes = "application/xml", produces = "application/xml")
     public User updateProduct(@RequestBody User user) {
         userRepository.save(user);
         return userRepository.getOne(user.getId());
@@ -80,8 +79,5 @@ public class UserController {
         return new ResponseEntity<>(ex.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler
-    public ResponseEntity<String> sqlIntegrityConstraintViolationExceptionHandler(SQLIntegrityConstraintViolationException ex) {
-        return new ResponseEntity<>(ex.getLocalizedMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+
 }

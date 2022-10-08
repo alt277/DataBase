@@ -30,18 +30,10 @@ public class ProductService {
 
     }
 
-//    public ProductDTO  findBestSellerByDate( LocalDate create_date){
-//        return productDataRepository.findBestSellerByDate(create_date);
-//    };
-//    public Product  findBestSellerByDate( LocalDate create_date){
-//        return productRepository.findBestSellerByDate(create_date);
-//    };
-
     public ProductDTO findBestSellerForMonth(LocalDate create_date){
         Integer id=  productRepository.findBestSellerInt(create_date);
         return productDataRepository.findProductById(id).orElseThrow(new LogicalException(" не найдены покупатли за последние полгода " ));
     };
-
 
     public ProductDTO  findPrroductByUserAge( Integer age){
         Integer id= infoRepository.findProductIdByUserAge(age);
@@ -50,10 +42,6 @@ public class ProductService {
     public Product  findBestSellerPlain(){
         return productRepository.findBestSellerPlain();
     };
-//    public Product  findBestSellerNot(@Param("create_date") LocalDate create_date){
-//        return productRepositoryNotJPA.findBestSellerByDate(create_date);
-//    };
-
 
     public Optional<Product> findById(Integer id) {
         return productRepository.findById(id);
@@ -63,9 +51,6 @@ public class ProductService {
         return productDataRepository.findProductByUserId(id);
     }
 
-  //  public ProductDTO findOldest() {
-//        return productDataRepository.findOldest();
-//    }
     public List<ProductDTO> findAllDto() {
         return productDataRepository.findAllProductData();
     }
@@ -82,24 +67,15 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-
-    /* проверял: работает идеально:
-       если такой id - есть сохранит переданный объект со своим id
-       если нет сохранит с новым по порядку id */
     public Product update(Product product) {
         productRepository.save(product);
         return productRepository.getOne(product.getId());
     }
-//    public void getProductByMaxPrice(){
-//        List<ProductDTO> productByMaxPrice = productRepository.getProductByMaxPrice();
-//        System.out.println(productByMaxPrice);
-//    }
-
+    public void remove(Integer id) {
+        productRepository.deleteById(id);
+    }
     public List<Product> findAll() {
         return productRepository.findAll();
     }
 
-    public void remove(Integer id) {
-        productRepository.deleteById(id);
-    }
 }

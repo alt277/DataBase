@@ -47,7 +47,7 @@ public class PurchaseInfoController {
     public List<PurchaseInfo> findAllByDate() {
         LocalDate date = LocalDate.now(); // получаем текущую дату
         date=date.minusDays(7);
-        System.out.println("Дата минус неделя =" +date);
+
         return infoService.findAllByDate(date);
     }
 
@@ -55,9 +55,8 @@ public class PurchaseInfoController {
     public Integer findPID() {
         LocalDate date = LocalDate.now(); // получаем текущую дату
         date=date.minusMonths(1);
-        System.out.println("Дата минус день =" +date);
-        System.out.println("Результат = " + infoService.findPId(date));
-        return infoService.findPId(date);
+
+        return infoService.findProductIdByDate(date);
     }
 
 

@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 
@@ -15,13 +17,18 @@ import java.util.List;
 @Builder
 public class ProductDTO {
 
+    @NotNull(message = "Id не может быть null")
     private Integer id;
 
+    @NotNull(message = "Имя не может быть null")
+    @Size(min = 1, max = 50, message
+            = "Имя должно быть от 1 символа")
     private String name;
 
+    @NotNull(message = "Цена не может быть null")
     private Double price;
 
-
+    private List<User> users;
 
     public ProductDTO() {
     }
@@ -44,6 +51,6 @@ public class ProductDTO {
         this.price =product.getPrice();
     }
 
-    private List<User> users;
+
 
 }

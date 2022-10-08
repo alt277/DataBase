@@ -31,7 +31,8 @@ public interface InfoRepository extends JpaRepository<PurchaseInfo, Integer> {
             " where p.create_date > :date \n" +
             " group by p.product_id \n" +
             " order by sum (p.quantity) desc limit 1 ", nativeQuery = true)
-    Integer findPID(@Param("date") LocalDate date);
+    Integer findProductIdByDate(@Param("date") LocalDate date);
+
 
 
     @Query(value = "select   p.user_id  FROM purchase p \n" +

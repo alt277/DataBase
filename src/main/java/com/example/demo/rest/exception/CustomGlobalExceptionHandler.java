@@ -51,7 +51,7 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     @ExceptionHandler(LogicalException.class)
     protected ResponseEntity<AwesomeException> handleLogicalException(RuntimeException ex) {
         return new ResponseEntity<>(new AwesomeException(
-                "Логическая ошибка : " + ex.getMessage()), HttpStatus.BAD_REQUEST);
+                " ошибка : " + ex.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(EmailIsNotUnique.class)
@@ -63,7 +63,7 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     @ExceptionHandler(PurchaseNotFound.class)
     protected ResponseEntity<AwesomeException> handleEmailIsAbsent() {
         return new ResponseEntity<>(new AwesomeException(
-                "Нет информация о покупке не найдена"), HttpStatus.BAD_REQUEST);
+                "Информация о покупке не найдена"), HttpStatus.BAD_REQUEST);
     }
 
 
