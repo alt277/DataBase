@@ -4,6 +4,7 @@ package com.example.demo.rest.controller;
 import com.example.demo.persist.entity.PurchaseInfo;
 import com.example.demo.persist.entity.data.PurchaseInfoDTO;
 import com.example.demo.service.InfoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
-//@Tag(name = "User resource API", description = "API to operate User resource ...")
-//@CrossOrigin(origins = "http://localhost:63342")
 
+@Tag(name = "Котроллер информиции о продукте",
+        description = "реализует CRUD-операции для работы с информацией о продукте")
 @RequestMapping("/api/v1/purchase")
 @RestController
 public class PurchaseInfoCrudController {
@@ -31,7 +32,7 @@ public class PurchaseInfoCrudController {
         return infoService.findById(id);
     }
 
-//    @PostMapping( consumes = "application/xml", produces = "application/xml")
+    //    @PostMapping( consumes = "application/xml", produces = "application/xml")
 //    public PurchaseInfo createProduct(@RequestBody PurchaseInfoDTO infoDTO) {
 //        return infoService.save(infoDTO);
 //    }
@@ -39,7 +40,8 @@ public class PurchaseInfoCrudController {
     public PurchaseInfo createProduct(@RequestBody PurchaseInfoDTO infoDTO) {
         return infoService.save(infoDTO);
     }
-    @PutMapping(value = "/update",consumes = "application/xml", produces = "application/xml")
+
+    @PutMapping(value = "/update", consumes = "application/xml", produces = "application/xml")
     public PurchaseInfo updateProduct(@RequestBody PurchaseInfoDTO infoDTO) {
         return infoService.update(infoDTO);
     }

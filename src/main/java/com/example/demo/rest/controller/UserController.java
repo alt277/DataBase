@@ -6,6 +6,7 @@ import com.example.demo.persist.entity.User;
 import com.example.demo.persist.entity.data.UserRequestDTO;
 import com.example.demo.persist.repository.UserRepository;
 import com.example.demo.service.impl.UserServiceImpl;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,8 +18,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-//@Tag(name = "User resource API", description = "API to operate User resource ...")
-//@CrossOrigin(origins = "http://localhost:63342")
+@Tag(name = "User resource API", description = "API to operate User resource ...")
 
 @RequestMapping("/api/v1/user")
 @RestController
@@ -42,7 +42,6 @@ public class UserController {
     @GetMapping(path = "/{id}/id", produces = "application/xml")
     public Optional findById(@PathVariable("id") int id) {
         return userRepository.findById(id);
-
     }
 
     @PostMapping(consumes = "application/xml", produces = "application/xml")
@@ -52,7 +51,7 @@ public class UserController {
 
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(consumes = "application/xml", produces = "application/xml")
     public User updateProduct(@RequestBody User user) {
         userRepository.save(user);
         return userRepository.getOne(user.getId());
@@ -80,8 +79,5 @@ public class UserController {
         return new ResponseEntity<>(ex.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler
-    public ResponseEntity<String> sqlIntegrityConstraintViolationExceptionHandler(SQLIntegrityConstraintViolationException ex) {
-        return new ResponseEntity<>(ex.getLocalizedMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+
 }

@@ -1,4 +1,0 @@
-2022-08-03 09:19:07 DEBUG   (DeviceRestController.java:41) http-nio-8480-exec-1  - THIS  IS TRACE2 
-2022-08-03 09:23:41 DEBUG   (DeviceRestController.java:41) http-nio-8480-exec-1  - THIS  IS TRACE2 
-2022-09-30 12:21:00 DEBUG   (DeviceRestController.java:41) http-nio-8480-exec-3  - THIS  IS TRACE2 
-2022-10-03 10:27:32 DEBUG   (DeviceRestController.java:41) http-nio-8480-exec-7  - THIS  IS TRACE2 

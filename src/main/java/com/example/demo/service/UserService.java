@@ -4,7 +4,6 @@ package com.example.demo.service;
 import com.example.demo.persist.entity.User;
 import com.example.demo.persist.entity.data.UserRequestDTO;
 import com.example.demo.rest.exception.EmailIsAbsent;
-
 import java.util.List;
 
 public interface UserService {

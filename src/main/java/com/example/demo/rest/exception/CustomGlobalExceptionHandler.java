@@ -5,6 +5,7 @@ package com.example.demo.rest.exception;
 
 
 import com.example.demo.service.impl.EmailIsNotUnique;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
+@Tag(name = "Exceptions controller", description = "API to operate exceptions ")
 @ControllerAdvice
 public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -51,7 +54,7 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     @ExceptionHandler(LogicalException.class)
     protected ResponseEntity<AwesomeException> handleLogicalException(RuntimeException ex) {
         return new ResponseEntity<>(new AwesomeException(
-                "Логическая ошибка : " + ex.getMessage()), HttpStatus.BAD_REQUEST);
+                " ошибка : " + ex.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(EmailIsNotUnique.class)
@@ -63,7 +66,7 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     @ExceptionHandler(PurchaseNotFound.class)
     protected ResponseEntity<AwesomeException> handleEmailIsAbsent() {
         return new ResponseEntity<>(new AwesomeException(
-                "Нет информация о покупке не найдена"), HttpStatus.BAD_REQUEST);
+                "Информация о покупке не найдена"), HttpStatus.BAD_REQUEST);
     }
 
 

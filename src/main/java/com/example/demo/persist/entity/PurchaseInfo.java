@@ -8,9 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
-// при созданнии новой сущности не забыть прописать ее в Hibernate конфиг. файле
-// при созданиипри созданнии  СОСТАВНОЙ сущности СОСТАВНОЙ ПЕРВИЧНЫЙ ключ не подойдет
-@Entity            // - не сработает на запросах,  нужен простой отдельный ID
+
+@Entity
 @Table(name = "purchase")
 public class PurchaseInfo extends AbstractItem {
     @Id
