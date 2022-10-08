@@ -75,16 +75,16 @@ public class InfoService {
 
     void validatePurchase(PurchaseInfoDTO dto) {
         if (dto.getUser_id() == null) {
-            System.out.println("Ноль юзер: "+dto.getUser_id());
+            System.out.println("Ноль юзер: " + dto.getUser_id());
             throw new LogicalException("Пользователь незарегистрирован");
         }
 
         if (dto.getProduct_id() == null) {
-            System.out.println("Ноль продукт:"+dto.getProduct_id());
+            System.out.println("Ноль продукт:" + dto.getProduct_id());
             throw new LogicalException("Продукт отсутствует ");
         }
         if (dto.getQuantity() == null) {
-            System.out.println("Ноль количество:"+dto.getQuantity());
+            System.out.println("Ноль количество:" + dto.getQuantity());
             throw new LogicalException("Введите количество товара ");
         }
     }

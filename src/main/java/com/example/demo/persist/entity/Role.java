@@ -1,9 +1,7 @@
 package com.example.demo.persist.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -20,7 +18,8 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    public Role() { }
+    public Role() {
+    }
 
     public Role(Long id, String name) {
         this.id = id;

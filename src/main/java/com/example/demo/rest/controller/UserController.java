@@ -6,6 +6,7 @@ import com.example.demo.persist.entity.User;
 import com.example.demo.persist.entity.data.UserRequestDTO;
 import com.example.demo.persist.repository.UserRepository;
 import com.example.demo.service.impl.UserServiceImpl;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,8 +18,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-//@Tag(name = "User resource API", description = "API to operate User resource ...")
-//@CrossOrigin(origins = "http://localhost:63342")
+@Tag(name = "User resource API", description = "API to operate User resource ...")
 
 @RequestMapping("/api/v1/user")
 @RestController

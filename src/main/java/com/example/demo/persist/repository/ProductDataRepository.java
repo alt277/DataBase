@@ -22,11 +22,7 @@ public interface ProductDataRepository extends JpaRepository <Product,Integer>{
     @Query("select new com.example.demo.persist.entity.data.ProductDTO (p.id, p.name, p.price) from Product p")
     List<ProductDTO> findAllProductData();
 
-//    @Query("select new com.example.demo.persist.entity.data.ProductDTO (prod.id,prod.name,prod.price,prod.users) from Product prod  " +
-//            " JOIN  PurchaseInfo p on  p.product_id =prod.id" +
-//            " JOIN User u on p.user_id =u.id "+
-//            " where p.id = :id  ")
-//    ProductDTO findWholeProductById (@Param("id") Integer id);
+
 
     @Query("select new com.example.demo.persist.entity.data.ProductDTO (d.id,d.name,d.price) from Product  " +
             " d join d.users u "+

@@ -4,6 +4,7 @@ package com.example.demo.rest.controller;
 import com.example.demo.persist.entity.PurchaseInfo;
 import com.example.demo.persist.entity.data.PurchaseInfoDTO;
 import com.example.demo.service.InfoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
-//@Tag(name = "User resource API", description = "API to operate User resource ...")
-//@CrossOrigin(origins = "http://localhost:63342")
 
+@Tag(name = "Котроллер информиции о продукте",
+        description = "реализует CRUD-операции для работы с информацией о продукте")
 @RequestMapping("/api/v1/purchase")
 @RestController
 public class PurchaseInfoCrudController {

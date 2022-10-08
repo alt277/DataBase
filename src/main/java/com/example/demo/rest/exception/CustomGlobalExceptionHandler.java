@@ -5,6 +5,7 @@ package com.example.demo.rest.exception;
 
 
 import com.example.demo.service.impl.EmailIsNotUnique;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
+@Tag(name = "Exceptions controller", description = "API to operate exceptions ")
 @ControllerAdvice
 public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 

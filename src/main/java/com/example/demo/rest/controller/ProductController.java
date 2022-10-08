@@ -1,14 +1,12 @@
 package com.example.demo.rest.controller;
 
 
-
 import com.example.demo.persist.entity.Product;
 import com.example.demo.persist.entity.data.ProductDTO;
-
 import com.example.demo.service.ProductService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,31 +16,29 @@ import java.util.List;
 import java.util.Optional;
 
 
-
+@Tag(name = "Контроллер продукта",
+        description = "реализует поиск продукта по заданным параметрам" +
+                "и CRUD операции для рабоиы с продуктом")
 @RequestMapping("/api/v1/product")
 @RestController
 public class ProductController {
 
-
-
     private final ProductService productService;
 
-
     @Autowired
-    public ProductController( ProductService productService) {
-
-
-
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
+
     //вывести самый покупаемый товар за последний месяц
     @GetMapping(path = "/bestSeller", produces = "application/xml")
     public ProductDTO findBestSellerForMonth() {
         LocalDate date = LocalDate.now();
-        System.out.println("сегодня:"+date);
-        date=date.minusMonths(1);
+        System.out.println("сегодня:" + date);
+        date = date.minusMonths(1);
         return productService.findBestSellerForMonth(date);
     }
+
     // что чаше всего поупают люди в определенном возрасте
     @GetMapping(path = "/age/{age}", produces = "application/xml")
     public ProductDTO findProductByUserAge(@PathVariable("age") Integer age) {
@@ -55,15 +51,6 @@ public class ProductController {
         return productService.findBestSellerPlain();
     }
 
-//    @GetMapping(path = "/bestSellerNot", produces = "application/xml")
-//    public Product findBestSeller() {
-//
-//        LocalDate date = LocalDate.now();
-//        date=date.minusMonths(1);
-//        System.out.println("Дата минус месяц =" +date);
-//
-//        return productService.findBestSellerNot(date);
-//    }
 
     @GetMapping(path = "/all", produces = "application/xml")
     public List<Product> findAll() {
@@ -87,18 +74,15 @@ public class ProductController {
     }
 
 
-    @PostMapping(consumes = "application/xml", produces = "application/xml")
+    @PostMapping(path = "/save",consumes = "application/xml", produces = "application/xml")
     public Product createProduct(@RequestBody Product product) {
 
         return productService.save(product);
 
     }
 
-
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/update",consumes = "application/xml", produces = "application/xml")
     public Product updateProduct(@RequestBody Product product) {
-// todo
-
         return productService.update(product);
 
     }
@@ -109,8 +93,6 @@ public class ProductController {
         System.out.println("in deleteByID");
         productService.deleteById(id);
     }
-
-
 
 
     @ExceptionHandler
